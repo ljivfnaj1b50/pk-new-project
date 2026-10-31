@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: guoyu-zhongxiang-demo
+    runtime: static
+    branch: guoyu-demo
+    buildCommand: mkdir -p public && cp index.html app.js style.css public/ && cp -R assets public/
+    staticPublishPath: ./public
+    autoDeployTrigger: off
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
